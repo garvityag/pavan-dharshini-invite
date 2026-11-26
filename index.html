@@ -145,9 +145,10 @@ a{color:inherit}
 .card2 .wc{position:absolute;z-index:3;pointer-events:none}
 .card2 .wc.tr{top:-12px;right:-22px;width:min(70%,330px)}
 .card2 .wc.bl{bottom:-12px;left:-22px;width:min(70%,330px);transform:rotate(180deg)}
-.in2{position:relative;z-index:2;margin:0 auto;width:min(78%,370px)}
+.in2{position:relative;z-index:2;margin:0 auto;width:min(calc(100% - 136px),340px)}
+@media(max-width:440px){.in2{width:calc(100% - 100px)}}
 .u2{font:600 26px "Noto Serif Tamil",serif;color:#b08a4c;line-height:1}
-.gan2{font:600 12.5px Cinzel,serif;letter-spacing:.08em;color:#9a7136;margin:6px 0 16px}
+.gan2{font:600 16px Cinzel,serif;letter-spacing:.14em;color:#9a7136;margin:6px 0 16px}
 .kj{font:500 13px Cinzel,serif;letter-spacing:.16em;text-transform:uppercase;margin:0;color:#7b2439}
 .eng{font:400 clamp(40px,11.5vw,56px)/1.15 "Pinyon Script",cursive;color:#7b2439;margin:4px 0 2px}
 .dv{display:block;width:200px;height:auto;margin:10px auto}
@@ -157,9 +158,10 @@ a{color:inherit}
 .amp{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
 .amp svg{width:48px;height:16px}
 .amp span{font:50px/1 "Pinyon Script",cursive;color:#b08a4c;background:linear-gradient(180deg,#d9b56b,#9a7136);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding:0 4px}
-.dt{font:600 clamp(19px,5.4vw,24px) "Cormorant Garamond",serif;color:#5e1c2c;margin:4px 0 0;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.dt{font:600 clamp(16px,4.6vw,24px) "Cormorant Garamond",serif;color:#5e1c2c;margin:4px 0 0;display:flex;justify-content:center;align-items:center;gap:10px;white-space:nowrap}
 .dt i{width:1.5px;height:20px;background:#7b2439}
-.ven{font:500 16.5px/1.45 "Cormorant Garamond",serif;color:#5e1c2c;margin:0 0 16px}
+.ven{font:500 15.5px/1.45 "Cormorant Garamond",serif;color:#5e1c2c;margin:0 0 16px;text-wrap:balance}
+.ven b{display:block;font-weight:600}
 .qr{display:block;width:128px;margin:0 auto;padding:10px;background:#fbf7f2;border:1.5px solid #c4a063;border-radius:8px;box-shadow:0 0 0 4px #fbf7f2,0 0 0 5px #d9bf8c}
 .qr svg{display:block;width:100%;height:auto}
 .scan{display:inline-flex;align-items:center;min-height:36px;margin:14px 0 10px;padding:0 20px;border-radius:999px;background:#6e1f33;color:#fbeff2;text-decoration:none;font:500 11.5px Cinzel,serif;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 4px 10px #6e1f3333}
@@ -335,8 +337,7 @@ footer p{max-width:420px;margin:0 auto}
   <svg class="wc tr" id="wcTR" viewBox="0 0 300 330" aria-hidden="true"></svg>
   <svg class="wc bl" id="wcBL" viewBox="0 0 300 330" aria-hidden="true"></svg>
   <div class="in2">
-    <div class="u2" lang="ta">உ</div>
-    <p class="gan2">|| Shree Ganeshaya Namah ||</p>
+    <p class="gan2">|| Shree ||</p>
     <p class="kj">Kindly join us for the</p>
     <h1 class="eng">Engagement Ceremony</h1>
     <svg class="dv" viewBox="0 0 220 12" aria-hidden="true"><path d="M0 6H96M124 6H220" stroke="#c4a063" stroke-width=".8"/><path d="M110 0L116 6L110 12L104 6Z" fill="none" stroke="#b08a4c"/><circle cx="110" cy="6" r="1.5" fill="#b08a4c"/><circle cx="98" cy="6" r="1" fill="#b08a4c"/><circle cx="122" cy="6" r="1" fill="#b08a4c"/></svg>
@@ -348,7 +349,7 @@ footer p{max-width:420px;margin:0 auto}
     <svg class="dv" viewBox="0 0 220 12" aria-hidden="true"><path d="M0 6H96M124 6H220" stroke="#c4a063" stroke-width=".8"/><path d="M110 0L116 6L110 12L104 6Z" fill="none" stroke="#b08a4c"/></svg>
     <p class="dt">Sunday <i></i> 13th December, 2026</p>
     <svg class="dv sm" viewBox="0 0 80 10" aria-hidden="true"><path d="M0 5H32M48 5H80" stroke="#c4a063" stroke-width=".8"/><path d="M40 1L44 5L40 9L36 5Z" fill="#b08a4c"/></svg>
-    <p class="ven">Jayasakthi Palace AC Kalyana Mandapam,<br>41, Madipakkam Main Rd, near SAI School,<br>Ram Nagar South, Madipakkam,<br>Chennai, Tamil Nadu 600091</p>
+    <p class="ven"><b>Jayasakthi Palace AC Kalyana Mandapam</b>41, Madipakkam Main Rd, near SAI School, Ram Nagar South, Madipakkam, Chennai, Tamil Nadu 600091</p>
     <p class="rsvp">RSVP : Pavan</p>
     <p class="ph">+91 87781 66801</p>
     <svg class="dv sm" viewBox="0 0 80 10" aria-hidden="true"><path d="M0 5H32M48 5H80" stroke="#c4a063" stroke-width=".8"/><path d="M40 1L44 5L40 9L36 5Z" fill="#b08a4c"/></svg>
@@ -455,7 +456,7 @@ footer p{max-width:420px;margin:0 auto}
   // embossed damask frame
   // embossed damask frames
   const drawEmb=emb=>{const W=emb.clientWidth,H=emb.clientHeight;if(!W)return;
-    const t=+emb.dataset.t||14,bw=+emb.dataset.bw||34;
+    const t=+emb.dataset.t||14,bw=(+emb.dataset.bw||34)*(W<440?.7:1);
     emb.setAttribute('viewBox','0 0 '+W+' '+H);
     emb.innerHTML='<defs><filter id="em'+emb.dataset.k+'" x="-5%" y="-5%" width="110%" height="110%"><feDropShadow dx="-1" dy="-1" stdDeviation=".4" flood-color="#ffffff" flood-opacity=".95"/><feDropShadow dx="1.1" dy="1.3" stdDeviation=".7" flood-color="#9c8670" flood-opacity=".55"/></filter>'+
       '<pattern id="dam'+emb.dataset.k+'" width="38" height="38" patternUnits="userSpaceOnUse"><g fill="#f4ece3">'+
