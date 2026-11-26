@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light only">
-<meta name="supported-color-schemes" content="light">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
 <meta name="theme-color" content="#efe5da">
 <meta name="darkreader-lock">
 <meta name="description" content="Join us for the engagement of Pavan & Dharshini · Sunday, 13 December 2026 · 9:30 AM onwards · Jayasakthi Palace, Madipakkam, Chennai">
@@ -29,8 +29,11 @@
    PICTURE: ivory arch over Lake Pichola, jasmine strands, glowing brass lanterns, marble chhatris
    COLOUR and TYPE: ivory + antique gold + sage; Pinyon Script for names, Cinzel caps, Cormorant body
    LAYOUT: one-column mobile scroll; hero, countdown, events, venue, RSVP, blessing */
-html,body{background-color:#e7dbc4}
-:root{color-scheme:only light;--bg:#f4ecdf;--card:#fbf6ec;--ink:#4a3b22;--gold:#a88446;--gold2:#c9a96a;--sage:#7d8a6a;--soft:#e9dcc6}
+html,body{background-color:#e7dbc4;color:#4a3b22}
+a{color:inherit}
+*{forced-color-adjust:none}
+@media (prefers-color-scheme:dark){html,body{background-color:#e7dbc4;color:#4a3b22}.page,.th,.card2,#gate{color-scheme:light dark}}
+:root{color-scheme:light dark;--bg:#f4ecdf;--card:#fbf6ec;--ink:#4a3b22;--gold:#a88446;--gold2:#c9a96a;--sage:#7d8a6a;--soft:#e9dcc6}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:#e7dbc4 radial-gradient(circle at 50% 0,#f3e9d6,#e2d3b6 70%) fixed;color:var(--ink);font:17px/1.6 "Cormorant Garamond",Georgia,serif;overflow-x:clip}
@@ -175,7 +178,7 @@ a{color:inherit}
 .par{font:500 15px "Cormorant Garamond",serif;color:#7b2439;margin:4px 0 0;letter-spacing:.04em}
 .amp{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
 .amp svg{width:48px;height:16px}
-.amp span{font:50px/1 "Pinyon Script",cursive;color:#b08a4c;background:linear-gradient(180deg,#d9b56b,#9a7136);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding:0 4px}
+.amp span{font:50px/1 "Pinyon Script",cursive;color:#b08a4c;-webkit-text-fill-color:#b08a4c;padding:0 4px}
 .dt{font:600 clamp(16px,4.6vw,24px) "Cormorant Garamond",serif;color:#5e1c2c;margin:4px 0 0;display:flex;justify-content:center;align-items:center;gap:10px;white-space:nowrap}
 .dt i{width:1.5px;height:20px;background:#7b2439}
 .tm{font:600 clamp(16px,4.4vw,20px) Cinzel,serif;letter-spacing:.08em;color:#7b2439;margin:6px 0 0}
@@ -255,7 +258,6 @@ footer p{max-width:420px;margin:0 auto}
 @keyframes sway{50%{transform:rotate(2.2deg)}}
 .flick{animation:flick 2.4s ease-in-out infinite}
 @keyframes flick{50%{opacity:.7}}
-@media (prefers-color-scheme:dark){:root,html,body{color-scheme:only light}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise{opacity:1;transform:translateX(-50%)}}
 
 </style>
