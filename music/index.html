@@ -303,7 +303,6 @@ footer p{max-width:420px;margin:0 auto}
     <div class="gseal"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="url(#gold1)"/><circle cx="50" cy="50" r="47" fill="none" stroke="#8a6a33" stroke-width="2"/><circle cx="50" cy="50" r="36" fill="#d8b874" stroke="#a07c3e" stroke-width="1.5"/><g fill="none" stroke="#8a6a33" stroke-width="1.6" stroke-linecap="round"><path d="M50 74V30"/><path d="M50 62C42 58 38 52 38 46M50 62C58 58 62 52 62 46M50 50C44 46 42 40 43 34M50 50C56 46 58 40 57 34"/></g><g fill="#8a6a33"><circle cx="38" cy="45" r="2.6"/><circle cx="62" cy="45" r="2.6"/><circle cx="43" cy="33" r="2.4"/><circle cx="57" cy="33" r="2.4"/><circle cx="50" cy="28" r="2.8"/></g><circle cx="50" cy="50" r="47" fill="none" stroke="#fff3cf" stroke-width="1" opacity=".5" transform="translate(-1 -1)"/></svg></div>
   </div>
   <p class="hint">Tap to open</p>
-  <p class="hint" style="font:italic 14px 'Cormorant Garamond',serif;letter-spacing:0;animation:none;margin-top:-10px">with music</p>
 </div>
 </div>
 
@@ -557,7 +556,7 @@ footer p{max-width:420px;margin:0 auto}
   // background music (nadaswaram)
   const bgm=document.getElementById('bgm'),mus=document.getElementById('mus');let playing=false,fadeT;
   const fadeTo=(v,ms)=>{clearInterval(fadeT);const st=bgm.volume,t0=Date.now();fadeT=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);bgm.volume=st+(v-st)*k;if(k>=1)clearInterval(fadeT)},50)};
-  const startMusic=()=>{try{bgm.muted=false;bgm.volume=1;const p=bgm.play();const ok=()=>{playing=true;mus.classList.add('on','playing')};if(p&&p.then)p.then(ok).catch(()=>{mus.classList.add('on')});else ok()}catch(e){}};
+  const startMusic=()=>{try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}try{bgm.muted=false;bgm.volume=1;const p=bgm.play();const ok=()=>{playing=true;mus.classList.add('on','playing')};if(p&&p.then)p.then(ok).catch(()=>{mus.classList.add('on')});else ok()}catch(e){}};
   let userPaused=false;const kick=e=>{if(e&&e.target&&e.target.closest&&e.target.closest('#mus'))return;if(!playing&&!userPaused&&gate.classList.contains('open'))startMusic()};
   document.addEventListener('touchend',kick,{passive:true});document.addEventListener('click',kick);
   mus.addEventListener('click',()=>{if(playing){bgm.pause();playing=false;userPaused=true;mus.classList.remove('playing');mus.setAttribute('aria-label','Play music')}else{bgm.play().then(()=>{playing=true;mus.classList.add('playing');mus.setAttribute('aria-label','Pause music')}).catch(()=>{})}});
