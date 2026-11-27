@@ -364,7 +364,7 @@ footer p{max-width:420px;margin:0 auto}
 </section>
 
 
-<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<audio id="bgm" src="music.mp3?v=2" loop preload="auto" playsinline></audio>
 <button id="mus" type="button" aria-label="Pause music"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="bars" fill="currentColor"><rect x="4" y="8" width="3" height="12" rx="1"/><rect x="10.5" y="4" width="3" height="16" rx="1"/><rect x="17" y="10" width="3" height="10" rx="1"/></g></svg></button>
 <header class="card2" id="top">
   <svg class="emb" data-t="14" data-bw="34" aria-hidden="true"></svg>
@@ -557,8 +557,10 @@ footer p{max-width:420px;margin:0 auto}
   // background music (nadaswaram)
   const bgm=document.getElementById('bgm'),mus=document.getElementById('mus');let playing=false,fadeT;
   const fadeTo=(v,ms)=>{clearInterval(fadeT);const st=bgm.volume,t0=Date.now();fadeT=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);bgm.volume=st+(v-st)*k;if(k>=1)clearInterval(fadeT)},50)};
-  const startMusic=()=>{try{bgm.volume=0;const p=bgm.play();if(p&&p.then)p.then(()=>{playing=true;mus.classList.add('on','playing');fadeTo(.45,2500)}).catch(()=>{mus.classList.add('on')});else{playing=true;mus.classList.add('on','playing');fadeTo(.45,2500)}}catch(e){}};
-  mus.addEventListener('click',()=>{if(playing){bgm.pause();playing=false;mus.classList.remove('playing');mus.setAttribute('aria-label','Play music')}else{bgm.play().then(()=>{playing=true;mus.classList.add('playing');fadeTo(.45,800);mus.setAttribute('aria-label','Pause music')}).catch(()=>{})}});
+  const startMusic=()=>{try{bgm.muted=false;bgm.volume=1;const p=bgm.play();const ok=()=>{playing=true;mus.classList.add('on','playing')};if(p&&p.then)p.then(ok).catch(()=>{mus.classList.add('on')});else ok()}catch(e){}};
+  let userPaused=false;const kick=e=>{if(e&&e.target&&e.target.closest&&e.target.closest('#mus'))return;if(!playing&&!userPaused&&gate.classList.contains('open'))startMusic()};
+  document.addEventListener('touchend',kick,{passive:true});document.addEventListener('click',kick);
+  mus.addEventListener('click',()=>{if(playing){bgm.pause();playing=false;userPaused=true;mus.classList.remove('playing');mus.setAttribute('aria-label','Play music')}else{bgm.play().then(()=>{playing=true;mus.classList.add('playing');mus.setAttribute('aria-label','Pause music')}).catch(()=>{})}});
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)bgm.pause();else if(!document.hidden&&playing)bgm.play().catch(()=>{})});
 
   // gate
